@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+    <html lang="en">
+        <head>
+            <meta charset="UTF-8">
+            <title>Teen Build Up</title>
+            <link rel='shortcut icon' href = "https://user-images.githubusercontent.com/76495035/129419811-0420e1de-17ab-4392-bf16-76a28bf18781.png" type = "image/png">
+              {% load bootstrap4 %}
+              {% bootstrap_css %}
+              {% bootstrap_javascript jquery='full' %}
+        </head>
+    <body>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+      <a class="navbar-brand" href="/">
+          <img src="https://user-images.githubusercontent.com/76495035/129419811-0420e1de-17ab-4392-bf16-76a28bf18781.png" width="30" height="30" class="d-inline-block align-top" alt="">
+          Teen Build Up
+      </a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+        <form class="form-inline">
+            <div class="nav-item dropdown ml-3">
+              <a class="nav-link dropdown-toggle text-dark" href="/" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                Search for Opportunities
+              </a>
+              <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                <a class="dropdown-item text-dark" href="/searchforstartups/">Search for Start-Ups</a>
+                <a class="dropdown-item text-dark" href="/searchforclubs/">Search for Club</a>
+                <a class="dropdown-item text-dark" href="/searchforevents/">Search for Events</a>
+              </div>
+            </div>
+            <a class="nav-link mr-2 ml-2 text-dark" href="/post/">Post</a>
+            <a class="nav-link mr-2 ml-2 text-dark" href="/myposts/">My Posts</a>
+            <a class="nav-link mr-2 ml-2 text-dark" href="/following/">Following</a>
+            <a class="nav-link mr-2 ml-2 text-dark" href="/popular/">Popular</a>
+            <a class="nav-link mr-2 ml-2 text-dark" href="/profile/">Profile</a>
+            <a href='/sign-out' class="btn btn-outline-primary ml-2">Sign Out</a>
+        </form>
+    </nav>
+      </header><br><br>
+                <div class="col-lg-4" style="margin-left:50px">
+                <b class="text-secondary text-dark" style="font-size:25px">Contact Start-Ups, Clubs, or Events</b><br><br>
+                <div class="card bg-white mt-2 mb-5">
+                    <div class="card-body">
+                        <form method="POST">
+                            {% csrf_token %}
+                            <p class="text-secondary text-dark" style="font-size:18px">Your Email</p>
+                            <input type="text" class="form-control" name="from" placeholder={{request.user.email}} disabled><br>
+                            <p class="text-secondary text-dark" style="font-size:18px">Subject</p>
+                            <input type="text" class="form-control" name="subject" placeholder="Subject"><br>
+                            <p class="text-secondary text-dark" style="font-size:18px">Message (Introduce Yourself!)</p>
+                            <textarea class="form-control" name="message" placeholder="Message"></textarea><br>
+                            <input style="display:none" name="to" id="playername2">
+                            <button type="submit" class="btn btn-primary">Email</button>
+                        </form>
+                    </div>
+                </div></div>
+
+  <footer class="text-center mt-5 mb-5">
+    &copy; 2021, Teen Build Up
+  </footer>
+
+  <script>
+      var email = localStorage.getItem("emailcontact");
+      if (email == ''){
+        window.location.replace('/buy/');
+      } else {
+        document.getElementById('playername2').value = email;
+      }
+  </script>
+
+  </body>
+ </html>

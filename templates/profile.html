@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+    <html lang="en">
+        <head>
+            <meta charset="UTF-8">
+            <title>Teen Build Up</title>
+            <link rel='shortcut icon' href = "https://user-images.githubusercontent.com/76495035/129419811-0420e1de-17ab-4392-bf16-76a28bf18781.png" type = "image/png">
+              {% load bootstrap4 %}
+              {% bootstrap_css %}
+              {% bootstrap_javascript jquery='full' %}
+        </head>
+    <body>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+      <a class="navbar-brand" href="/">
+          <img src="https://user-images.githubusercontent.com/76495035/129419811-0420e1de-17ab-4392-bf16-76a28bf18781.png" width="30" height="30" class="d-inline-block align-top" alt="">
+          Teen Build Up
+      </a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+        <form class="form-inline">
+            <div class="nav-item dropdown ml-3">
+              <a class="nav-link dropdown-toggle text-dark" href="/" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                Search for Opportunities
+              </a>
+              <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                <a class="dropdown-item text-dark" href="/searchforstartups/">Search for Start-Ups</a>
+                <a class="dropdown-item text-dark" href="/searchforclubs/">Search for Club</a>
+                <a class="dropdown-item text-dark" href="/searchforevents/">Search for Events</a>
+              </div>
+            </div>
+            <a class="nav-link mr-2 ml-2 text-dark" href="/post/">Post</a>
+            <a class="nav-link mr-2 ml-2 text-dark" href="/myposts/">My Posts</a>
+            <a class="nav-link mr-2 ml-2 text-dark" href="/following/">Following</a>
+            <a class="nav-link mr-2 ml-2 text-dark" href="/popular/">Popular</a>
+            <a class="nav-link mr-2 ml-2 text-dark" href="/profile/">Profile</a>
+            <a href='/sign-out' class="btn btn-outline-primary ml-2">Sign Out</a>
+        </form>
+    </nav>
+      </header><br><br>
+               <center><div class="card" style="width: 30rem;">
+               <div class="card-body">
+                <div style="align:middle">
+                        <div class="text-center">
+                           <h4>{{request.user.get_full_name}}</h4>
+                            <p class="text-secondary">{{request.user.email}}</p>
+                        </div>
+                    </div>
+               </div>
+               </div>
+                </div></center>
+
+        <div class="container bg-light mt-4 pt-3 pb-3">
+            <div class="row">
+                <div class="col-lg-6">
+                    <b class="text-secondary text-dark" style="font-size:20px">Change Profile</b><br>
+                    <div class="card bg-white mt-2 mb-5">
+                        <div class="card-body">
+                            <form method="POST">
+                                {% csrf_token %}
+                                {% bootstrap_form user_form %}
+                                <input type="hidden" name="action" value="update_profile">
+                                <button type="submit" class="btn btn-primary">Save</button>
+                            </form>
+                        </div>
+                    </div>
+                    <div class="card bg-white mt-2 mb-5">
+                        <div class="card-body">
+                            <form method="POST">
+                               {% csrf_token %}
+                               {% bootstrap_form_errors area_form %}
+                               {% bootstrap_label "Enter Your Area" %}
+                               {% bootstrap_field area_form.area show_label=False placeholder="Add Your Area (City or County)" %}
+                               <input type="hidden" name="action" value="update_area">
+                               <button type="submit" class="btn btn-primary">Save</button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-6">
+                    <b class="text-secondary text-dark" style="font-size:20px">Change Password</b><br>
+                    <div class="card bg-white mt-2 mb-5">
+                        <div class="card-body">
+                            <form method="POST">
+                                {% csrf_token %}
+                                {% bootstrap_form password_form %}
+                                <input type="hidden" name="action" value="update_password">
+                                <button type="submit" class="btn btn-primary">Save</button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+  <footer class="text-center mt-5 mb-5">
+    &copy; 2021, Teen Build Up
+  </footer>
+
+    <script src = "https://unpkg.com/bootoast@1.0.1/dist/bootoast.min.js"></script>
+    <link rel="stylesheet" href="https://unpkg.com/bootoast@1.0.1/dist/bootoast.min.css">
+    <script>
+        function toast(message,type) {
+            bootoast.toast({
+                position:'leftBottom',
+                message,
+                type,
+            });
+        }
+
+        {% if messages %}
+
+        {% for message in messages %}
+        toast('{{message}}','{{message.tage}}');
+        {% endfor %}
+        {% endif %}
+  </script>
+  </body>
+ </html>

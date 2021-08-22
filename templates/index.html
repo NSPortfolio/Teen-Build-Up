@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Teen Build Up</title>
+    <link rel='shortcut icon' href = "https://user-images.githubusercontent.com/76495035/129419811-0420e1de-17ab-4392-bf16-76a28bf18781.png" type = "image/png">
+    <link href="https://fonts.googleapis.com/css2?family=Baloo+Tammudu+2&display=swap" rel="stylesheet">
+      {% load bootstrap4 %}
+      {% bootstrap_css %}
+      {% bootstrap_javascript jquery='full' %}
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+      <a class="navbar-brand" href="/">
+          <img src="https://user-images.githubusercontent.com/76495035/129419811-0420e1de-17ab-4392-bf16-76a28bf18781.png" width="30" height="30" class="d-inline-block align-top" alt="">
+          Teen Build Up
+      </a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      {% if not request.user.is_authenticated %}
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav mr-auto">
+          <li class="nav-item">
+            <a href='/log-in/' class="btn btn-outline-primary">Log-In</a>
+          </li>
+          <li class="nav-item">
+            <a href='/sign-up/' class="btn btn-outline-primary ml-3">Sign-Up</a>
+          </li>
+        </ul>
+      </div>
+        {% else %}
+          <form class="form-inline">
+            <div class="nav-item dropdown ml-3">
+              <a class="nav-link dropdown-toggle text-dark" href="/" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                Search for Opportunities
+              </a>
+              <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                <a class="dropdown-item text-dark" href="/searchforstartups/">Search for Start-Ups</a>
+                <a class="dropdown-item text-dark" href="/searchforclubs/">Search for Club</a>
+                <a class="dropdown-item text-dark" href="/searchforevents/">Search for Events</a>
+              </div>
+            </div>
+                <a class="nav-link mr-2 ml-2 text-dark" href="/post/">Post</a>
+                <a class="nav-link mr-2 ml-2 text-dark" href="/myposts/">My Posts</a>
+                <a class="nav-link mr-2 ml-2 text-dark" href="/following/">Following</a>
+                <a class="nav-link mr-2 ml-2 text-dark" href="/popular/">Popular</a>
+                <a class="nav-link mr-2 ml-2 text-dark" href="/profile/">Profile</a>
+                <a href='/sign-out' class="btn btn-outline-primary ml-2">Sign Out</a>
+          </form>
+        {% endif %}
+      </nav>
+
+    <style>
+    body {
+      margin: 0;
+    }
+
+    .topnav {
+      overflow: hidden;
+      background-color: #FFFFFF;
+      font-family: Copperplate;
+    }
+
+    .topnav a {
+      float: right;
+      color: black;
+      padding: 20px;
+      text-decoration: none;
+      font-size: 20px;
+      font-family: 'Baloo Tammudu 2', cursive;
+    }
+
+    .topnav a:hover {
+      background-color: #C0C0C0;
+      color: black;
+      font-family: 'Baloo Tammudu 2', cursive;
+    }
+
+    .container {
+      position: relative;
+    }
+
+    .containertwo {
+      position: relative;
+      height: 480px;
+      width: 100%;
+      background-color:#E6E6FA;
+    }
+
+    .containerthree {
+      position: relative;
+      height: 400px;
+      width: 100%;
+      background-color:white;
+    }
+
+    .containerfour {
+      position: relative;
+      height: 480px;
+      width: 100%;
+      background-color:	#8ab9f1;
+    }
+
+    .text-block {
+         position: absolute;
+         top: 150px;
+         left: 50px;
+         border-radius: 8px;
+         background-color: white;
+         padding: 20px;
+       }
+
+    .text-block-two {
+         position: absolute;
+         top: 50px;
+         left: 50px;
+         border-radius: 8px;
+         background-color: white;
+         padding: 20px;
+         width:60%
+       }
+
+    .text-block-three {
+         position: absolute;
+         top: 50px;
+         right: 50px;
+         border-radius: 8px;
+         background-color: white;
+         padding: 20px;
+         width:60%
+       }
+
+    .imagebox {
+      position: absolute;
+      left: 2px;
+      top:2px;
+    }
+
+    .cartoonbox {
+      position: absolute;
+      right: 40px;
+      top:50px;
+    }
+
+    .cartoonboxtwo {
+      position: absolute;
+      left: 60px;
+      top:50px;
+    }
+
+   </style>
+
+     <div class="p-5 bg-image" style="background-image: url('https://user-images.githubusercontent.com/76495035/122298663-a6a8f500-cec2-11eb-8bad-7d3b2307f726.png'); height: 750px; background-size:cover; background-repeat:no-repeat;">
+        <div class="text-block">
+             <h1 style = "font-family:oswald;color:black;font-size:50px">Teen Build Up</h1>
+             <p style = "font-family: 'Baloo Tammudu 2', cursive; color:black;font-size:20px">Teen Build Up is a free online platform designed to help boost <br> start-ups, clubs, and events created by middle and high schoolers. </p><br><br>
+             <a href = "#learnmore" style = "border:none; color:white; padding:12px; font-family:oswald; text-decoration: none; font-size: 24px; background-color:#004AAD; border-radius: 12px; left: 150px;" class= "button">Learn More</a>
+        </div>
+     </div>
+
+    <div id = "learnmore" class="containertwo">
+     <table><tr><td>
+     <div class="text-block-two">
+         <h1 style = "font-family:oswald;color:#484848;font-size:40px">Advertise Your Start-Up, Club, or Event</h1>
+         <p style = "font-family: 'Baloo Tammudu 2', cursive; color:gray;font-size:20px">As technology expands, an increasing number of teenagers are starting businesses and need a way to spread the word to the relevant market. Teen Build-Up is providing a free online platform for high school and middle school start-up and club owners to advertise their services and gain followers. </p><br>
+      </div></td><td>
+      <div class="cartoonbox">
+     <img src = "https://user-images.githubusercontent.com/76495035/122306149-91859380-cecd-11eb-8d61-751ab1b9f6d6.png" height = 380;>
+      </div></td></tr></table>
+    </div><br><br>
+
+   <div class="containerthree">
+     <table><tr><td>
+     <div class="cartoonboxtwo">
+         <img src = "https://user-images.githubusercontent.com/76495035/122312759-8127e580-ceda-11eb-8b22-f5c8ce9fc565.png" height = 300;>
+      </div></td><td>
+      <div class="text-block-three">
+         <h1 style = "font-family:oswald;color:#484848;font-size:40px">Get A Boost</h1>
+         <p style = "font-family: 'Baloo Tammudu 2', cursive; color:gray;font-size:20px">Other than just for getting views and spreading the word, start-up owners and event hosts can use Teen Build Up as a means to attain volunteers for service work, orders for products, interns, donations, etc. </p>
+      </div></td></tr></table>
+   </div> <br><br>
+
+   <div class="containerfour">
+     <table><tr><td>
+     <div class="text-block-two">
+         <h1 style = "font-family:oswald;color:#484848;font-size:40px">Join the Community</h1>
+         <p style = "font-family: 'Baloo Tammudu 2', cursive; color:gray;font-size:20px">Join a community of other teen entrepreneurs and problem-solvers and stay tuned with what is new. Join services and charities that stand for what you believe in. </p>
+     </div></td><td>
+      <div class="cartoonbox">
+     <img src = "https://user-images.githubusercontent.com/76495035/122312760-81c07c00-ceda-11eb-8076-84baf2e992e3.png" height = 350;>
+      </div></td></tr></table>
+   </div> <br><br>
+
+   <div class="containerthree">
+     <table><tr><td>
+     <div class="cartoonboxtwo">
+         <img src = "https://user-images.githubusercontent.com/76495035/122312756-808f4f00-ceda-11eb-9aad-5a429c7828e0.png" height = 250;>
+      </div></td><td>
+      <div class="text-block-three">
+         <h1 style = "font-family:oswald;color:#484848;font-size:40px">Find Volunteering and Interning Opportunities</h1>
+         <p style = "font-family: 'Baloo Tammudu 2', cursive; color:gray;font-size:20px">Find volunteering and interning opportunities in other start-ups based on your interests and make your resume stand out. </p>
+      </div></td></tr></table>
+   </div> <br><br>
+
+   <div class="containertwo">
+     <table><tr><td>
+     <div class="text-block-two">
+         <h1 style = "font-family:oswald;color:#484848;font-size:40px">Teen BuildUp Connect Platform</h1>
+         <p style = "font-family: 'Baloo Tammudu 2', cursive; color:gray;font-size:20px">As a business, use the Teen BuildUp Connect Platform to interact with your direct audience, post recent events, and send updates like meeting times. </p>
+     </div></td><td>
+      <div class="cartoonbox">
+     <img src = "https://user-images.githubusercontent.com/76495035/122312754-7ff6b880-ceda-11eb-9aa8-6dfd232cf6ae.png" height = 350;>
+      </div></td></tr></table>
+   </div>
+
+  <footer class="text-center mt-5 mb-5">
+    &copy; 2021, Teen Build Up
+  </footer>
+</body>
+</html>

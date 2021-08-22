@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+    <html lang="en">
+        <head>
+            <meta charset="UTF-8">
+            <title>Teen Build Up</title>
+            <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css">
+            <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css">
+            <link rel='shortcut icon' href = "https://user-images.githubusercontent.com/76495035/129419811-0420e1de-17ab-4392-bf16-76a28bf18781.png" type = "image/png">
+              {% load bootstrap4 %}
+              {% bootstrap_css %}
+              {% bootstrap_javascript jquery='full' %}
+        </head>
+    <body>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+      <a class="navbar-brand" href="/">
+          <img src="https://user-images.githubusercontent.com/76495035/129419811-0420e1de-17ab-4392-bf16-76a28bf18781.png" width="30" height="30" class="d-inline-block align-top" alt="">
+          Teen Build Up
+      </a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+        <form class="form-inline">
+            <div class="nav-item dropdown ml-3">
+              <a class="nav-link dropdown-toggle text-dark" href="/" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                Search for Opportunities
+              </a>
+              <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                <a class="dropdown-item text-dark" href="/searchforstartups/">Search for Start-Ups</a>
+                <a class="dropdown-item text-dark" href="/searchforclubs/">Search for Club</a>
+                <a class="dropdown-item text-dark" href="/searchforevents/">Search for Events</a>
+              </div>
+            </div>
+            <a class="nav-link mr-2 ml-2 text-dark" href="/post/">Post</a>
+            <a class="nav-link mr-2 ml-2 text-dark" href="/myposts/">My Posts</a>
+            <a class="nav-link mr-2 ml-2 text-dark" href="/following/">Following</a>
+            <a class="nav-link mr-2 ml-2 text-dark" href="/popular/">Popular</a>
+            <a class="nav-link mr-2 ml-2 text-dark" href="/profile/">Profile</a>
+            <a href='/sign-out' class="btn btn-outline-primary ml-2">Sign Out</a>
+        </form>
+    </nav>
+      </header><br><br>
+        <center>
+        <nav style="width:99%;">
+          <div class="nav nav-tabs" id="nav-tab" role="tablist">
+            <a href="/searchforstartups/" class="nav-link {% if request.path == '/searchforstartups/' %}active{% endif %}">All</a>
+            <a href="/searchforstartups/environmental/" class="nav-link {% if request.path == '/searchforstartups/environmental/' %}active{% endif %}">Environmental</a>
+            <a href="/searchforstartups/STEM/" class="nav-link {% if request.path == '/searchforstartups/STEM/' %}active{% endif %}">STEM</a>
+            <a href="/searchforstartups/reading-writing/" class="nav-link {% if request.path == '/searchforstartups/reading-writing/' %}active{% endif %}">Reading/Writing</a>
+            <a href="/searchforstartups/art-music/" class="nav-link {% if request.path == '/searchforstartups/art-music/' %}active{% endif %}">Art/Music</a>
+          </div>
+        </nav></center><br>
+
+             <form class="d-flex" method="GET" value="{{request.GET.searchforstartups}}">
+                <input class="form-control ml-5" type="search" name="searchforstartups" value="{{request.GET.searchforstartups}}" id="searchforstartups" style="width:600px" placeholder="Search for Start-Ups" aria-label="Search">
+                <button class="btn btn-outline-primary bi-search" type="submit" name="submit" value="Search"></button>
+             </form>
+
+            <br>
+            {% if searchbutton == 'Search' and request.GET.searchforstartups != '' or request.GET.searchforstartups is not None %}
+            <h4 style="margin-left:50px">Results for <b>{{ request.GET.searchforstartups }}</b></h4>
+            <br>
+            {% if onlinesearch or inpersonsearch %}
+            {% for onlinesearch in onlinesearch %}
+                 <div class="col-lg-6" style="margin-left:50px">
+                 <div class="card mb-3 mr-5 ml-5">
+                      <div class="card-body">
+                        <h5 class="card-title">{{onlinesearch.name_of_organization}}</h5>
+                        <span class="badge badge-warning" style="font-size:14px">Followers: {{onlinesearch.saved.count}}</span><br>
+                        <h5 style="font-size:15px;" class="card-text">{{onlinesearch.interest}}</h5>
+                        <p style="font-size:15px;" class="card-text">{{onlinesearch.area}}</p>
+                        <p style="font-size:14px;" class="card-text">{{onlinesearch.description}}</p>
+                        <p style="font-size:14px;" class="card-text">{{onlinesearch.looking}}</p>
+                        <a class="btn btn-warning" href={{onlinesearch.website}} style="font-size:15px;">Website</a><br><br>
+                        <a class="btn btn-primary" id={{onlinesearch.email}} onclick="email(this.id)" href="/contact/">Contact</a>
+                        <a class="btn btn-primary" href="{% url 'savepost' onlinesearch.name_of_organization %}">Follow</a>
+                      </div>
+                    </div>
+              </div><br>
+            {% endfor %}
+            {% for inpersonsearch in inpersonsearch %}
+                 <div class="card mb-3 mr-5 ml-5">
+                    <div class="col-md-6">
+                      <div class="card-body">
+                        <h5 class="card-title">{{inpersonsearch.name_of_organization}}</h5>
+                        <span class="badge badge-warning" style="font-size:14px">Followers: {{inpersonsearch.saved.count}}</span><br>
+                        <h5 style="font-size:15px;" class="card-text">{{inpersonsearch.interest}}</h5>
+                        <p style="font-size:15px;" class="card-text">{{inpersonsearch.area}}</p>
+                        <p style="font-size:14px;" class="card-text">{{inpersonsearch.description}}</p>
+                        <p style="font-size:14px;" class="card-text">{{inpersonsearch.looking}}</p>
+                        <a class="btn btn-warning" href={{inpersonsearch.website}} style="font-size:15px;">Website</a><br><br>
+                        <a class="btn btn-primary" id={{inpersonsearch.email}} onclick="email(this.id)" href="/contact/">Contact</a>
+                        <a class="btn btn-primary" href="{% url 'savepost' inpersonsearch.name_of_organization %}">Follow</a>
+                      </div>
+                    </div>
+                  </div>
+                </div><br>
+            {% endfor %}
+            {% else %}
+                <h4 style="margin-left:50px">No results found for <b>{{ request.GET.searchforevents }}</b></h4>
+                <button style="margin-left:50px" class="btn btn-primary" onclick="reload()">Return</button><br><br>
+            {% endif %}
+
+        {% else %}
+        {% for online in online %}
+        <div class="col-lg-6" style="margin-left:50px">
+                 <div class="card mb-3 mr-5 ml-5">
+                      <div class="card-body">
+                        <h5 class="card-title">{{online.name_of_organization}}</h5>
+                        <span class="badge badge-warning" style="font-size:14px">Followers: {{online.saved.count}}</span><br>
+                        <h5 style="font-size:15px;" class="card-text">{{online.interest}}</h5>
+                        <p style="font-size:15px;" class="card-text">{{online.area}}</p>
+                        <p style="font-size:14px;" class="card-text">{{online.description}}</p>
+                        <p style="font-size:14px;" class="card-text">{{online.looking}}</p>
+                        <a class="btn btn-warning" href={{online.website}} style="font-size:15px;">Website</a><br><br>
+                        <a class="btn btn-primary" id={{online.email}} onclick="email(this.id)" href="/contact/">Contact</a>
+                        <a class="btn btn-primary" href="{% url 'savepost' online.name_of_organization %}">Follow</a>
+                      </div>
+                    </div>
+              </div><br>
+            {% endfor %}
+        {% for inperson in inperson %}
+        <div class="col-lg-6" style="margin-left:50px">
+                 <div class="card mb-3 mr-5 ml-5">
+                      <div class="card-body">
+                        <h5 class="card-title">{{inperson.name_of_organization}}</h5>
+                        <span class="badge badge-warning" style="font-size:14px">Followers: {{inperson.saved.count}}</span><br>
+                        <h5 style="font-size:15px;" class="card-text">{{inperson.interest}}</h5>
+                        <p style="font-size:15px;" class="card-text">{{inperson.area}}</p>
+                        <p style="font-size:14px;" class="card-text">{{inperson.description}}</p>
+                        <p style="font-size:14px;" class="card-text">{{inperson.looking}}</p>
+                        <a class="btn btn-warning" href={{inperson.website}} style="font-size:15px;">Website</a><br><br>
+                        <a class="btn btn-primary" id={{inperson.email}} onclick="email(this.id)" href="/contact/">Contact</a>
+                        <a class="btn btn-primary" href="{% url 'savepost' inperson.name_of_organization %}">Follow</a>
+                      </div>
+                    </div>
+        </div><br>
+        {% endfor %}
+        {% endif %}
+
+  <footer class="text-center mt-5 mb-5">
+    &copy; 2021, Teen Build Up
+  </footer>
+
+  <script>
+      function reload() {
+        window.location.replace('/searchforstartups/');
+      }
+      function email(clicked_id) {
+        var emailcontact = clicked_id;
+        localStorage.setItem("emailcontact", emailcontact);
+      }
+  </script>
+
+  </body>
+</html>

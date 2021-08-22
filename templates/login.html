@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+  <html>
+  <head>
+   <title>Tech Jungle</title>
+   <link rel='shortcut icon' href = "https://user-images.githubusercontent.com/76495035/124677613-77185780-de86-11eb-8bbc-982a6b64214e.png" type = "image/png">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css">
+
+      {% load bootstrap4 %}
+      {% bootstrap_css %}
+      {% bootstrap_javascript jquery='full' %}
+  </head>
+  <body>
+<header>
+  <nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <a class="navbar-brand" href="/">
+        <img src="https://user-images.githubusercontent.com/76495035/129419811-0420e1de-17ab-4392-bf16-76a28bf18781.png" width="30" height="30" class="d-inline-block align-top" alt="">
+        Teen Build Up
+    </a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav mr-auto">
+        <li class="nav-item">
+          <a href='/log-in/' class="btn btn-outline-primary ml-5">Log-In</a>
+        </li>
+        <li class="nav-item">
+          <a href='/sign-up/' class="btn btn-outline-primary ml-3">Sign-Up</a>
+        </li>
+      </ul>
+    </div>
+</nav>
+
+  <div class = "container-fluid mt-5">
+    <div class="row justify-content-center">
+      <div class="col-lg-4">
+        <div class="card">
+          <div class="card-body">
+            <h4 class="text-center text-uppercase mb-3"><b>Log-In</b></h4>
+            <form method="POST">
+              {% csrf_token %}
+              {% bootstrap_form_errors form %}
+              {% bootstrap_label "Email" %}
+              {% bootstrap_field form.username show_label=False placeholder="Email" %}
+              {% bootstrap_field form.password %}
+              <button class="btn btn-primary btn-block">Log-In</button>
+              <p class="text-center mt-3">New to Teen Build Up?<br><a href="/sign-up/"><b>Sign-Up</b></a></p>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</header>
+  <footer class="text-center mt-5 mb-5">
+    &copy; 2021, Teen Build Up
+  </footer>
+  </body>
+</html>

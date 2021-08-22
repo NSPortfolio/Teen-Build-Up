@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+    <html lang="en">
+        <head>
+            <meta charset="UTF-8">
+            <title>Teen Build Up</title>
+            <link rel='shortcut icon' href = "https://user-images.githubusercontent.com/76495035/129419811-0420e1de-17ab-4392-bf16-76a28bf18781.png" type = "image/png">
+              {% load bootstrap4 %}
+              {% bootstrap_css %}
+              {% bootstrap_javascript jquery='full' %}
+        </head>
+    <body>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+      <a class="navbar-brand" href="/">
+          <img src="https://user-images.githubusercontent.com/76495035/129419811-0420e1de-17ab-4392-bf16-76a28bf18781.png" width="30" height="30" class="d-inline-block align-top" alt="">
+          Teen Build Up
+      </a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+        <form class="form-inline">
+            <div class="nav-item dropdown ml-3">
+              <a class="nav-link dropdown-toggle text-dark" href="/" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                Search for Opportunities
+              </a>
+              <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                <a class="dropdown-item text-dark" href="/searchforstartups/">Search for Start-Ups</a>
+                <a class="dropdown-item text-dark" href="/searchforclubs/">Search for Club</a>
+                <a class="dropdown-item text-dark" href="/searchforevents/">Search for Events</a>
+              </div>
+            </div>
+            <a class="nav-link mr-2 ml-2 text-dark" href="/post/">Post</a>
+            <a class="nav-link mr-2 ml-2 text-dark" href="/myposts/">My Posts</a>
+            <a class="nav-link mr-2 ml-2 text-dark" href="/following/">Following</a>
+            <a class="nav-link mr-2 ml-2 text-dark" href="/popular/">Popular</a>
+            <a class="nav-link mr-2 ml-2 text-dark" href="/profile/">Profile</a>
+            <a href='/sign-out' class="btn btn-outline-primary ml-2">Sign Out</a>
+        </form>
+    </nav>
+    <br><br>
+              {% for myposts in myposts %}
+              <div class="col-lg-6" style="margin-left:50px">
+                 <div class="card mb-3 mr-5 ml-5">
+                      <div class="card-body">
+                        <h5 class="card-title">{{myposts.name_of_organization}}</h5>
+                        <span class="badge badge-warning" style="font-size:14px">Followers: {{myposts.saved.count}}</span><br>
+                        <h5 style="font-size:15px;" class="card-text">{{myposts.organization}}</h5>
+                        <h5 style="font-size:15px;" class="card-text">{{myposts.interest}}</h5>
+                        <p style="font-size:15px;" class="card-text">{{myposts.area}}</p>
+                        <p style="font-size:14px;" class="card-text">{{myposts.description}}</p>
+                        <p style="font-size:14px;" class="card-text">{{myposts.looking}}</p>
+                        <a class="btn btn-warning" href={{myposts.website}} style="font-size:15px;">Website</a><br><br>
+                        <div class="alert alert-danger" style="font-size:14px;" role="alert">
+                            <b>Updates:</b> {{myposts.update}}
+                        </div>
+                          <div class="card">
+                              <div class="card-header" style="font-size:14px;">
+                                Recent Events
+                              </div>
+                              <div class="card-body">
+                                <h5 class="card-title" style="font-size:14px">{{myposts.recentevent}}</h5>
+                              </div>
+                            </div><br>
+                        <a class="btn btn-primary" href="{% url 'editpost' myposts.name_of_organization %}">Edit</a>
+                        <a class="btn btn-danger" href="{% url 'deletepost' myposts.name_of_organization %}">Delete</a>
+                      </div>
+                    </div>
+                 <br>
+              </div>
+            {% endfor %}
+
+  <footer class="text-center mt-5 mb-5">
+    &copy; 2021, Teen Build Up
+  </footer>
+  </body>
+ </html>

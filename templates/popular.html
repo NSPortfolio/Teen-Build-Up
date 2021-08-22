@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+    <html lang="en">
+        <head>
+            <meta charset="UTF-8">
+            <title>Teen Build Up</title>
+            <link rel='shortcut icon' href = "https://user-images.githubusercontent.com/76495035/129419811-0420e1de-17ab-4392-bf16-76a28bf18781.png" type = "image/png">
+              {% load bootstrap4 %}
+              {% bootstrap_css %}
+              {% bootstrap_javascript jquery='full' %}
+        </head>
+    <body>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+      <a class="navbar-brand" href="/">
+          <img src="https://user-images.githubusercontent.com/76495035/129419811-0420e1de-17ab-4392-bf16-76a28bf18781.png" width="30" height="30" class="d-inline-block align-top" alt="">
+          Teen Build Up
+      </a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+        <form class="form-inline">
+            <div class="nav-item dropdown ml-3">
+              <a class="nav-link dropdown-toggle text-dark" href="/" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                Search for Opportunities
+              </a>
+              <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                <a class="dropdown-item text-dark" href="/searchforstartups/">Search for Start-Ups</a>
+                <a class="dropdown-item text-dark" href="/searchforclubs/">Search for Club</a>
+                <a class="dropdown-item text-dark" href="/searchforevents/">Search for Events</a>
+              </div>
+            </div>
+            <a class="nav-link mr-2 ml-2 text-dark" href="/post/">Post</a>
+            <a class="nav-link mr-2 ml-2 text-dark" href="/myposts/">My Posts</a>
+            <a class="nav-link mr-2 ml-2 text-dark" href="/following/">Following</a>
+            <a class="nav-link mr-2 ml-2 text-dark" href="/popular/">Popular</a>
+            <a class="nav-link mr-2 ml-2 text-dark" href="/profile/">Profile</a>
+            <a href='/sign-out' class="btn btn-outline-primary ml-2">Sign Out</a>
+        </form>
+    </nav>
+    <br><br>
+    <center>
+    <p class="bg-light text-black text-center" style ="font-size:30px;padding:25px">Popular Start-Ups</p>
+    <div class="row">
+    <div class="col-sm-6">
+      <div class="col-sm-6">
+      <div class="card bg-light mb-3" style="max-width: 35rem;">
+          <div class="card-header bg-transparent border-primary">Environmental Start-Ups</div>
+            <ul class="list-group">
+              {% for startenv in startenv %}
+              <li class="list-group-item d-flex justify-content-between align-items-center">
+                {{startenv.name_of_organization}}
+                <span class="badge badge-primary badge-pill">Followers: {{startenv.saved.count}} </span>
+              </li>
+              {% endfor %}
+            </ul>
+      </div></div></div>
+    <div class="col-sm-6">
+      <div class="col-sm-6">
+      <div class="card bg-light mb-3" style="max-width: 35rem;">
+          <div class="card-header bg-transparent border-primary">STEM Start-Ups</div>
+            <ul class="list-group">
+              {% for startstem in startstem %}
+              <li class="list-group-item d-flex justify-content-between align-items-center">
+                {{startstem.name_of_organization}}
+                <span class="badge badge-primary badge-pill">Followers: {{startstem.saved.count}} </span>
+              </li>
+              {% endfor %}
+            </ul>
+      </div></div></div></div>
+    <div class="row">
+    <div class="col-sm-6">
+      <div class="col-sm-6">
+      <div class="card bg-light mb-3" style="max-width: 35rem;">
+          <div class="card-header bg-transparent border-primary">Reading/Writing Start-Ups</div>
+            <ul class="list-group">
+              {% for startread in startread %}
+              <li class="list-group-item d-flex justify-content-between align-items-center">
+                {{startread.name_of_organization}}
+                <span class="badge badge-primary badge-pill">Followers: {{startread.saved.count}} </span>
+              </li>
+              {% endfor %}
+            </ul>
+      </div></div></div>
+    <div class="col-sm-6">
+      <div class="col-sm-6">
+      <div class="card bg-light mb-3" style="max-width: 35rem;">
+          <div class="card-header bg-transparent border-primary">Art/Music Start-Ups</div>
+            <ul class="list-group">
+              {% for startart in startart %}
+              <li class="list-group-item d-flex justify-content-between align-items-center">
+                {{startart.name_of_organization}}
+                <span class="badge badge-primary badge-pill">Followers: {{startart.saved.count}} </span>
+              </li>
+              {% endfor %}
+            </ul>
+      </div></div></div></div></center><br><br>
+
+    <center>
+    <p class="bg-light text-black text-center" style ="font-size:30px;padding:25px">Popular Clubs</p>
+    <div class="row">
+    <div class="col-sm-6">
+      <div class="col-sm-6">
+      <div class="card bg-light mb-3" style="max-width: 35rem;">
+          <div class="card-header bg-transparent border-primary">Environmental Clubs</div>
+            <ul class="list-group">
+              {% for clubenv in clubenv %}
+              <li class="list-group-item d-flex justify-content-between align-items-center">
+                {{clubenv.name_of_organization}}
+                <span class="badge badge-primary badge-pill">Followers: {{clubenv.saved.count}} </span>
+              </li>
+              {% endfor %}
+            </ul>
+      </div></div></div>
+    <div class="col-sm-6">
+      <div class="col-sm-6">
+      <div class="card bg-light mb-3" style="max-width: 35rem;">
+          <div class="card-header bg-transparent border-primary">STEM Clubs</div>
+            <ul class="list-group">
+              {% for clubstem in clubstem %}
+              <li class="list-group-item d-flex justify-content-between align-items-center">
+                {{startstem.name_of_organization}}
+                <span class="badge badge-primary badge-pill">Followers: {{clubstem.saved.count}} </span>
+              </li>
+              {% endfor %}
+            </ul>
+      </div></div></div></div>
+    <div class="row">
+    <div class="col-sm-6">
+      <div class="col-sm-6">
+      <div class="card bg-light mb-3" style="max-width: 35rem;">
+          <div class="card-header bg-transparent border-primary">Reading/Writing Clubs</div>
+            <ul class="list-group">
+              {% for clubread in clubread %}
+              <li class="list-group-item d-flex justify-content-between align-items-center">
+                {{clubread.name_of_organization}}
+                <span class="badge badge-primary badge-pill">Followers: {{clubread.saved.count}} </span>
+              </li>
+              {% endfor %}
+            </ul>
+      </div></div></div>
+    <div class="col-sm-6">
+      <div class="col-sm-6">
+      <div class="card bg-light mb-3" style="max-width: 35rem;">
+          <div class="card-header bg-transparent border-primary">Art/Music Clubs</div>
+            <ul class="list-group">
+              {% for clubart in clubart %}
+              <li class="list-group-item d-flex justify-content-between align-items-center">
+                {{clubart.name_of_organization}}
+                <span class="badge badge-primary badge-pill">Followers: {{clubart.saved.count}} </span>
+              </li>
+              {% endfor %}
+            </ul>
+      </div></div></div></div></center><br><br>
+
+    <center>
+    <p class="bg-light text-black text-center" style ="font-size:30px;padding:25px">Popular Events</p>
+    <div class="row">
+    <div class="col-sm-6">
+      <div class="col-sm-6">
+      <div class="card bg-light mb-3" style="max-width: 35rem;">
+          <div class="card-header bg-transparent border-primary">Environmental Events</div>
+            <ul class="list-group">
+              {% for eventenv in eventenv %}
+              <li class="list-group-item d-flex justify-content-between align-items-center">
+                {{eventenv.name_of_organization}}
+                <span class="badge badge-primary badge-pill">Followers: {{eventenv.saved.count}} </span>
+              </li>
+              {% endfor %}
+            </ul>
+      </div></div></div>
+    <div class="col-sm-6">
+      <div class="col-sm-6">
+      <div class="card bg-light mb-3" style="max-width: 35rem;">
+          <div class="card-header bg-transparent border-primary">STEM Events</div>
+            <ul class="list-group">
+              {% for eventstem in eventstem %}
+              <li class="list-group-item d-flex justify-content-between align-items-center">
+                {{eventstem.name_of_organization}}
+                <span class="badge badge-primary badge-pill">Followers: {{eventstem.saved.count}} </span>
+              </li>
+              {% endfor %}
+            </ul>
+      </div></div></div></div>
+    <div class="row">
+    <div class="col-sm-6">
+      <div class="col-sm-6">
+      <div class="card bg-light mb-3" style="max-width: 35rem;">
+          <div class="card-header bg-transparent border-primary">Reading/Writing Events</div>
+            <ul class="list-group">
+              {% for eventread in eventread %}
+              <li class="list-group-item d-flex justify-content-between align-items-center">
+                {{eventread.name_of_organization}}
+                <span class="badge badge-primary badge-pill">Followers: {{eventread.saved.count}} </span>
+              </li>
+              {% endfor %}
+            </ul>
+      </div></div></div>
+    <div class="col-sm-6">
+      <div class="col-sm-6">
+      <div class="card bg-light mb-3" style="max-width: 35rem;">
+          <div class="card-header bg-transparent border-primary">Art/Music Events</div>
+            <ul class="list-group">
+              {% for eventart in eventart %}
+              <li class="list-group-item d-flex justify-content-between align-items-center">
+                {{eventart.name_of_organization}}
+                <span class="badge badge-primary badge-pill">Followers: {{eventart.saved.count}} </span>
+              </li>
+              {% endfor %}
+            </ul>
+      </div></div></div></div></center>
+
+  <footer class="text-center mt-5 mb-5">
+    &copy; 2021, Teen Build Up
+  </footer>
+  </body>
+ </html>
