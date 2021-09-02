@@ -67,8 +67,22 @@ WSGI_APPLICATION = 'teenbuildup.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        'NAME': 'Usersdb',
+        'ENGINE': 'django.db.backends.mysql',
+        'USER': 'root',
+        'PASSWORD': 'unicorn1'
+    },
+    'post': {
+        'NAME': 'Postsdb',
+        'ENGINE': 'django.db.backends.mysql',
+        'USER': 'root',
+        'PASSWORD': 'unicorn1'
+    },
+    'area': {
+        'NAME': 'Areasdb',
+        'ENGINE': 'django.db.backends.mysql',
+        'USER': 'root',
+        'PASSWORD': 'unicorn1'
     },
 }
 
