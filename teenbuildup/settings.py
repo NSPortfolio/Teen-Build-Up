@@ -12,7 +12,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = '=_agbczi48eu6)1n@y=(pac6%d2wo(l^8tpo)mpp4j4%he5zl^'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
 ALLOWED_HOSTS = ['www.teenbuilup.com', 'teenbuildup.com', '54.156.65.137', 'ec2-54-156-65-137.compute-1.amazonaws.com']
 
