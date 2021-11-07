@@ -70,21 +70,21 @@ DATABASES = {
         'ENGINE': 'django.db.backends.mysql',
         'USER': 'NS0886',
         'HOST': 'NS0886.mysql.pythonanywhere-services.com',
-        'PASSWORD': 'unicorn1'
+        'PASSWORD': 'root@be@root'
     },
     'post': {
         'NAME': 'Postsdb',
         'ENGINE': 'django.db.backends.mysql',
         'USER': 'NS0886',
         'HOST': 'NS0886.mysql.pythonanywhere-services.com',
-        'PASSWORD': 'unicorn1'
+        'PASSWORD': 'root@be@root'
     },
     'area': {
         'NAME': 'Areasdb',
         'ENGINE': 'django.db.backends.mysql',
         'USER': 'NS0886',
         'HOST': 'NS0886.mysql.pythonanywhere-services.com',
-        'PASSWORD': 'unicorn1'
+        'PASSWORD': 'root@be@root'
     },
 }
 
