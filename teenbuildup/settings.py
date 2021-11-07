@@ -15,6 +15,7 @@ DEBUG = False
 
 ALLOWED_HOSTS = ['www.teenbuildup.com','teenbuildup.com', 'ec2-52-203-12-134.compute-1.amazonaws.com', '52.203.12.134']
 
+DEFAULT_AUTO_FIELD='django.db.models.AutoField'
 
 # Application definition
 
