@@ -192,8 +192,8 @@ def searchforevents(request):
                       'searchbutton': searchbutton}
             return render(request, 'searchforevents.html', context)
         else:
-            online = Post.filter(organization="Event").filter(communication="Online").order_by('-created_at')
-            inperson = Post.filter(organization="Event").filter(communication="In-Person").filter(area=current_user).order_by('-created_at')
+            online = Post.objects.filter(organization="Event").filter(communication="Online").order_by('-created_at')
+            inperson = Post.objects.filter(organization="Event").filter(communication="In-Person").filter(area=current_user).order_by('-created_at')
             context = {'online': online,
                        'inperson': inperson,
                        'searchbutton': searchbutton}
@@ -215,8 +215,8 @@ def searchforeventsenv(request):
                       'searchbutton': searchbutton}
             return render(request, 'events/environmental.html', context)
         else:
-            online = Post.filter(organization="Event").filter(interest='Environment').filter(communication="Online").order_by('-created_at')
-            inperson = Post.filter(organization="Event").filter(interest='Environment').filter(communication="In-Person").filter(area=current_user).order_by('-created_at')
+            online = Post.objects.filter(organization="Event").filter(interest='Environment').filter(communication="Online").order_by('-created_at')
+            inperson = Post.objects.filter(organization="Event").filter(interest='Environment').filter(communication="In-Person").filter(area=current_user).order_by('-created_at')
             context = {'online': online,
                        'inperson': inperson,
                        'searchbutton': searchbutton}
@@ -238,8 +238,8 @@ def searchforeventsstem(request):
                       'searchbutton': searchbutton}
             return render(request, 'events/STEM.html', context)
         else:
-            online = Post.filter(organization="Event").filter(interest='STEM').filter(communication="Online").order_by('-created_at')
-            inperson = Post.filter(organization="Event").filter(interest='STEM').filter(communication="In-Person").filter(area=current_user).order_by('-created_at')
+            online = Post.objects.filter(organization="Event").filter(interest='STEM').filter(communication="Online").order_by('-created_at')
+            inperson = Post.objects.filter(organization="Event").filter(interest='STEM').filter(communication="In-Person").filter(area=current_user).order_by('-created_at')
             context = {'online': online,
                        'inperson': inperson,
                        'searchbutton': searchbutton}
@@ -261,8 +261,8 @@ def searchforeventsread(request):
                       'searchbutton': searchbutton}
             return render(request, 'events/readingwriting.html', context)
         else:
-            online = Post.filter(organization="Event").filter(interest='Reading/Writing').filter(communication="Online").order_by('-created_at')
-            inperson = Post.filter(organization="Event").filter(interest='Reading/Writing').filter(communication="In-Person").filter(area=current_user).order_by('-created_at')
+            online = Post.objects.filter(organization="Event").filter(interest='Reading/Writing').filter(communication="Online").order_by('-created_at')
+            inperson = Post.objects.filter(organization="Event").filter(interest='Reading/Writing').filter(communication="In-Person").filter(area=current_user).order_by('-created_at')
             context = {'online': online,
                        'inperson': inperson,
                        'searchbutton': searchbutton}
@@ -284,8 +284,8 @@ def searchforeventsart(request):
                       'searchbutton': searchbutton}
             return render(request, 'events/artmusic.html', context)
         else:
-            online = Post.filter(organization="Event").filter(interest='Music/Art').filter(communication="Online").order_by('-created_at')
-            inperson = Post.filter(organization="Event").filter(interest='Music/Art').filter(communication="In-Person").filter(area=current_user).order_by('-created_at')
+            online = Post.objects.filter(organization="Event").filter(interest='Music/Art').filter(communication="Online").order_by('-created_at')
+            inperson = Post.objects.filter(organization="Event").filter(interest='Music/Art').filter(communication="In-Person").filter(area=current_user).order_by('-created_at')
             context = {'online': online,
                        'inperson': inperson,
                        'searchbutton': searchbutton}
@@ -308,8 +308,8 @@ def searchforclubs(request):
                       'searchbutton': searchbutton}
             return render(request, 'searchforclubs.html', context)
         else:
-            online = Post.filter(organization="Club").filter(communication="Online").order_by('-created_at')
-            inperson = Post.filter(organization="Club").filter(communication="In-Person").filter(area=current_user).order_by('-created_at')
+            online = Post.objects.filter(organization="Club").filter(communication="Online").order_by('-created_at')
+            inperson = Post.objects.filter(organization="Club").filter(communication="In-Person").filter(area=current_user).order_by('-created_at')
             context = {'online': online,
                        'inperson': inperson,
                        'searchbutton': searchbutton}
@@ -331,8 +331,8 @@ def searchforclubsenv(request):
                         'searchbutton': searchbutton}
             return render(request, 'clubs/environmental.html', context)
         else:
-            online = Post.filter(organization="Club").filter(interest='Environment').filter(communication="Online").order_by('-created_at')
-            inperson = Post.filter(organization="Club").filter(interest='Environment').filter(communication="In-Person").filter(area=current_user).order_by('-created_at')
+            online = Post.objects.filter(organization="Club").filter(interest='Environment').filter(communication="Online").order_by('-created_at')
+            inperson = Post.objects.filter(organization="Club").filter(interest='Environment').filter(communication="In-Person").filter(area=current_user).order_by('-created_at')
             context = {'online': online,
                        'inperson': inperson,
                        'searchbutton': searchbutton}
@@ -354,8 +354,8 @@ def searchforclubsstem(request):
                       'searchbutton': searchbutton}
             return render(request, 'clubs/STEM.html', context)
         else:
-            online = Post.filter(organization="Club").filter(interest='STEM').filter(communication="Online").order_by('-created_at')
-            inperson = Post.filter(organization="Club").filter(interest='STEM').filter(communication="In-Person").filter(area=current_user).order_by('-created_at')
+            online = Post.objects.filter(organization="Club").filter(interest='STEM').filter(communication="Online").order_by('-created_at')
+            inperson = Post.objects.filter(organization="Club").filter(interest='STEM').filter(communication="In-Person").filter(area=current_user).order_by('-created_at')
             context = {'online': online,
                        'inperson': inperson,
                        'searchbutton': searchbutton}
@@ -377,8 +377,8 @@ def searchforclubsread(request):
                       'searchbutton': searchbutton}
             return render(request, 'clubs/readingwriting.html', context)
         else:
-            online = Post.filter(organization="Club").filter(interest='Reading/Writing').filter(communication="Online").order_by('-created_at')
-            inperson = Post.filter(organization="Club").filter(interest='Reading/Writing').filter(communication="In-Person").filter(area=current_user).order_by('-created_at')
+            online = Post.objects.filter(organization="Club").filter(interest='Reading/Writing').filter(communication="Online").order_by('-created_at')
+            inperson = Post.objects.filter(organization="Club").filter(interest='Reading/Writing').filter(communication="In-Person").filter(area=current_user).order_by('-created_at')
             context = {'online': online,
                        'inperson': inperson,
                        'searchbutton': searchbutton}
@@ -400,8 +400,8 @@ def searchforclubsart(request):
                         'searchbutton': searchbutton}
             return render(request, 'clubs/artmusic.html', context)
         else:
-            online = Post.filter(organization="Club").filter(interest='Music/Art').filter(communication="Online").order_by('-created_at')
-            inperson = Post.filter(organization="Club").filter(interest='Music/Art').filter(communication="In-Person").filter(area=current_user).order_by('-created_at')
+            online = Post.objects.filter(organization="Club").filter(interest='Music/Art').filter(communication="Online").order_by('-created_at')
+            inperson = Post.objects.filter(organization="Club").filter(interest='Music/Art').filter(communication="In-Person").filter(area=current_user).order_by('-created_at')
             context = {'online': online,
                        'inperson': inperson,
                        'searchbutton': searchbutton}
@@ -423,8 +423,8 @@ def searchforstartups(request):
                       'searchbutton': searchbutton}
             return render(request, 'searchforstartups.html', context)
         else:
-            online = Post.filter(organization="Start-Up").filter(communication="Online").order_by('-created_at')
-            inperson = Post.filter(organization="Start-Up").filter(communication="In-Person").filter(area=current_user).order_by('-created_at')
+            online = Post.objects.filter(organization="Start-Up").filter(communication="Online").order_by('-created_at')
+            inperson = Post.objects.filter(organization="Start-Up").filter(communication="In-Person").filter(area=current_user).order_by('-created_at')
             context = {'online': online,
                        'inperson': inperson,
                        'searchbutton': searchbutton}
@@ -446,8 +446,8 @@ def searchforstartupsenv(request):
                         'searchbutton': searchbutton}
             return render(request, 'startups/environmental.html', context)
         else:
-            online = Post.filter(organization="Start-Up").filter(interest='Environment').filter(communication="Online").order_by('-created_at')
-            inperson = Post.filter(organization="Start-Up").filter(interest='Environment').filter(communication="In-Person").filter(area=current_user).order_by('-created_at')
+            online = Post.objects.filter(organization="Start-Up").filter(interest='Environment').filter(communication="Online").order_by('-created_at')
+            inperson = Post.objects.filter(organization="Start-Up").filter(interest='Environment').filter(communication="In-Person").filter(area=current_user).order_by('-created_at')
             context = {'online': online,
                        'inperson': inperson,
                        'searchbutton': searchbutton}
@@ -469,8 +469,8 @@ def searchforstartupsstem(request):
                       'searchbutton': searchbutton}
             return render(request, 'startups/STEM.html', context)
         else:
-            online = Post.filter(organization="Start-Up").filter(interest='STEM').filter(communication="Online").order_by('-created_at')
-            inperson = Post.filter(organization="Start-Up").filter(interest='STEM').filter(communication="In-Person").filter(area=current_user).order_by('-created_at')
+            online = Post.objects.filter(organization="Start-Up").filter(interest='STEM').filter(communication="Online").order_by('-created_at')
+            inperson = Post.objects.filter(organization="Start-Up").filter(interest='STEM').filter(communication="In-Person").filter(area=current_user).order_by('-created_at')
             context = {'online': online,
                        'inperson': inperson,
                        'searchbutton': searchbutton}
@@ -492,8 +492,8 @@ def searchforstartupsread(request):
                       'searchbutton': searchbutton}
             return render(request, 'startups/readingwriting.html', context)
         else:
-            online = Post.filter(organization="Start-Up").filter(interest='Reading/Writing').filter(communication="Online").order_by('-created_at')
-            inperson = Post.filter(organization="Start-Up").filter(interest='Reading/Writing').filter(communication="In-Person").filter(area=current_user).order_by('-created_at')
+            online = Post.objects.filter(organization="Start-Up").filter(interest='Reading/Writing').filter(communication="Online").order_by('-created_at')
+            inperson = Post.objects.filter(organization="Start-Up").filter(interest='Reading/Writing').filter(communication="In-Person").filter(area=current_user).order_by('-created_at')
             context = {'online': online,
                        'inperson': inperson,
                        'searchbutton': searchbutton}
@@ -515,8 +515,8 @@ def searchforstartupsart(request):
                         'searchbutton': searchbutton}
             return render(request, 'startups/artmusic.html', context)
         else:
-            online = Post.filter(organization="Start-Up").filter(interest='Music/Art').filter(communication="Online").order_by('-created_at')
-            inperson = Post.filter(organization="Start-Up").filter(interest='Music/Art').filter(communication="In-Person").filter(area=current_user).order_by('-created_at')
+            online = Post.objects.filter(organization="Start-Up").filter(interest='Music/Art').filter(communication="Online").order_by('-created_at')
+            inperson = Post.objects.filter(organization="Start-Up").filter(interest='Music/Art').filter(communication="In-Person").filter(area=current_user).order_by('-created_at')
             context = {'online': online,
                        'inperson': inperson,
                        'searchbutton': searchbutton}
