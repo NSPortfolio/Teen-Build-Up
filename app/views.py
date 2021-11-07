@@ -185,8 +185,8 @@ def searchforevents(request):
         query = request.GET.get('searchforevents')
         searchbutton = request.GET.get('submit')
         if query is not None:
-            onlinesearch = Post.filter(organization="Event").filter(description__icontains=query).filter(communication="Online").order_by('-created_at')
-            inpersonsearch = Post.filter(organization="Event").filter(description__icontains=query).filter(communication="In-Person").order_by('-created_at')
+            onlinesearch = Post.objects.filter(organization="Event").filter(description__icontains=query).filter(communication="Online").order_by('-created_at')
+            inpersonsearch = Post.objects.filter(organization="Event").filter(description__icontains=query).filter(communication="In-Person").order_by('-created_at')
             context = {'onlinesearch': onlinesearch,
                        'inpersonsearch': inpersonsearch,
                       'searchbutton': searchbutton}
@@ -208,8 +208,8 @@ def searchforeventsenv(request):
         query = request.GET.get('searchforevents')
         searchbutton = request.GET.get('submit')
         if query is not None:
-            onlinesearch = Post.filter(organization="Event").filter(interest='Environment').filter(description__icontains=query).filter(communication="Online").order_by('-created_at')
-            inpersonsearch = Post.filter(organization="Event").filter(interest='Environment').filter(description__icontains=query).filter(communication="In-Person").order_by('-created_at')
+            onlinesearch = Post.objects.filter(organization="Event").filter(interest='Environment').filter(description__icontains=query).filter(communication="Online").order_by('-created_at')
+            inpersonsearch = Post.objects.filter(organization="Event").filter(interest='Environment').filter(description__icontains=query).filter(communication="In-Person").order_by('-created_at')
             context = {'onlinesearch': onlinesearch,
                        'inpersonsearch': inpersonsearch,
                       'searchbutton': searchbutton}
@@ -231,8 +231,8 @@ def searchforeventsstem(request):
         query = request.GET.get('searchforevents')
         searchbutton = request.GET.get('submit')
         if query is not None:
-            onlinesearch = Post.filter(organization="Event").filter(interest='STEM').filter(description__icontains=query).filter(communication="Online").order_by('-created_at')
-            inpersonsearch = Post.filter(organization="Event").filter(interest='STEM').filter(description__icontains=query).filter(communication="In-Person").order_by('-created_at')
+            onlinesearch = Post.objects.filter(organization="Event").filter(interest='STEM').filter(description__icontains=query).filter(communication="Online").order_by('-created_at')
+            inpersonsearch = Post.objects.filter(organization="Event").filter(interest='STEM').filter(description__icontains=query).filter(communication="In-Person").order_by('-created_at')
             context = {'onlinesearch': onlinesearch,
                        'inpersonsearch': inpersonsearch,
                       'searchbutton': searchbutton}
@@ -254,8 +254,8 @@ def searchforeventsread(request):
         query = request.GET.get('searchforevents')
         searchbutton = request.GET.get('submit')
         if query is not None:
-            onlinesearch = Post.filter(organization="Event").filter(interest='Reading/Writing').filter(description__icontains=query).filter(communication="Online").order_by('-created_at')
-            inpersonsearch = Post.filter(organization="Event").filter(interest='Reading/Writing').filter(description__icontains=query).filter(communication="In-Person").order_by('-created_at')
+            onlinesearch = Post.objects.filter(organization="Event").filter(interest='Reading/Writing').filter(description__icontains=query).filter(communication="Online").order_by('-created_at')
+            inpersonsearch = Post.objects.filter(organization="Event").filter(interest='Reading/Writing').filter(description__icontains=query).filter(communication="In-Person").order_by('-created_at')
             context = {'onlinesearch': onlinesearch,
                        'inpersonsearch': inpersonsearch,
                       'searchbutton': searchbutton}
@@ -277,8 +277,8 @@ def searchforeventsart(request):
         query = request.GET.get('searchforevents')
         searchbutton = request.GET.get('submit')
         if query is not None:
-            onlinesearch = Post.filter(organization="Event").filter(interest='Music/Art').filter(description__icontains=query).filter(communication="Online").order_by('-created_at')
-            inpersonsearch = Post.filter(organization="Event").filter(interest='Music/Art').filter(description__icontains=query).filter(communication="In-Person").order_by('-created_at')
+            onlinesearch = Post.objects.filter(organization="Event").filter(interest='Music/Art').filter(description__icontains=query).filter(communication="Online").order_by('-created_at')
+            inpersonsearch = Post.objects.filter(organization="Event").filter(interest='Music/Art').filter(description__icontains=query).filter(communication="In-Person").order_by('-created_at')
             context = {'onlinesearch': onlinesearch,
                        'inpersonsearch': inpersonsearch,
                       'searchbutton': searchbutton}
@@ -300,8 +300,8 @@ def searchforclubs(request):
         query = request.GET.get('searchforclubs')
         searchbutton = request.GET.get('submit')
         if query is not None:
-            onlinesearch = Post.filter(organization="Club").filter(description__icontains=query).filter(communication="Online").order_by('-created_at')
-            inpersonsearch = Post.filter(organization="Club").filter(description__icontains=query).filter(communication="In-Person").order_by('-created_at')
+            onlinesearch = Post.objects.filter(organization="Club").filter(description__icontains=query).filter(communication="Online").order_by('-created_at')
+            inpersonsearch = Post.objects.filter(organization="Club").filter(description__icontains=query).filter(communication="In-Person").order_by('-created_at')
 
             context = {'onlinesearch': onlinesearch,
                        'inpersonsearch': inpersonsearch,
@@ -324,8 +324,8 @@ def searchforclubsenv(request):
         query = request.GET.get('searchforclubs')
         searchbutton = request.GET.get('submit')
         if query is not None:
-            onlinesearch = Post.filter(organization="Club").filter(interest='Environment').filter(description__icontains=query).filter(communication="Online").order_by('-created_at')
-            inpersonsearch = Post.filter(organization="Club").filter(interest='Environment').filter(description__icontains=query).filter(communication="In-Person").order_by('-created_at')
+            onlinesearch = Post.objects.filter(organization="Club").filter(interest='Environment').filter(description__icontains=query).filter(communication="Online").order_by('-created_at')
+            inpersonsearch = Post.objects.filter(organization="Club").filter(interest='Environment').filter(description__icontains=query).filter(communication="In-Person").order_by('-created_at')
             context = {'onlinesearch': onlinesearch,
                        'inpersonsearch': inpersonsearch,
                         'searchbutton': searchbutton}
@@ -347,8 +347,8 @@ def searchforclubsstem(request):
         query = request.GET.get('searchforclubs')
         searchbutton = request.GET.get('submit')
         if query is not None:
-            onlinesearch = Post.filter(organization="Club").filter(interest='STEM').filter(description__icontains=query).filter(communication="Online").order_by('-created_at')
-            inpersonsearch = Post.filter(organization="Club").filter(interest='STEM').filter(description__icontains=query).filter(communication="In-Person").order_by('-created_at')
+            onlinesearch = Post.objects.filter(organization="Club").filter(interest='STEM').filter(description__icontains=query).filter(communication="Online").order_by('-created_at')
+            inpersonsearch = Post.objects.filter(organization="Club").filter(interest='STEM').filter(description__icontains=query).filter(communication="In-Person").order_by('-created_at')
             context = {'onlinesearch': onlinesearch,
                        'inpersonsearch': inpersonsearch,
                       'searchbutton': searchbutton}
@@ -370,8 +370,8 @@ def searchforclubsread(request):
         query = request.GET.get('searchforclubs')
         searchbutton = request.GET.get('submit')
         if query is not None:
-            onlinesearch = Post.filter(organization="Club").filter(interest='Reading/Writing').filter(description__icontains=query).filter(communication="Online").order_by('-created_at')
-            inpersonsearch = Post.filter(organization="Club").filter(interest='Reading/Writing').filter(description__icontains=query).filter(communication="In-Person").order_by('-created_at')
+            onlinesearch = Post.objects.filter(organization="Club").filter(interest='Reading/Writing').filter(description__icontains=query).filter(communication="Online").order_by('-created_at')
+            inpersonsearch = Post.objects.filter(organization="Club").filter(interest='Reading/Writing').filter(description__icontains=query).filter(communication="In-Person").order_by('-created_at')
             context = {'onlinesearch': onlinesearch,
                        'inpersonsearch': inpersonsearch,
                       'searchbutton': searchbutton}
@@ -393,8 +393,8 @@ def searchforclubsart(request):
         query = request.GET.get('searchforclubs')
         searchbutton = request.GET.get('submit')
         if query is not None:
-            onlinesearch = Post.filter(organization="Club").filter(interest='Music/Art').filter(description__icontains=query).filter(communication="Online").order_by('-created_at')
-            inpersonsearch = Post.filter(organization="Club").filter(interest='Music/Art').filter(description__icontains=query).filter(communication="In-Person").order_by('-created_at')
+            onlinesearch = Post.objects.filter(organization="Club").filter(interest='Music/Art').filter(description__icontains=query).filter(communication="Online").order_by('-created_at')
+            inpersonsearch = Post.objects.filter(organization="Club").filter(interest='Music/Art').filter(description__icontains=query).filter(communication="In-Person").order_by('-created_at')
             context = {'onlinesearch': onlinesearch,
                        'inpersonsearch': inpersonsearch,
                         'searchbutton': searchbutton}
@@ -416,8 +416,8 @@ def searchforstartups(request):
         query = request.GET.get('searchforstartups')
         searchbutton = request.GET.get('submit')
         if query is not None:
-            onlinesearch = Post.filter(organization="Start-Up").filter(description__icontains=query).filter(communication="Online").order_by('-created_at')
-            inpersonsearch = Post.filter(organization="Start-Up").filter(description__icontains=query).filter(communication="In-Person").order_by('-created_at')
+            onlinesearch = Post.objects.filter(organization="Start-Up").filter(description__icontains=query).filter(communication="Online").order_by('-created_at')
+            inpersonsearch = Post.objects.filter(organization="Start-Up").filter(description__icontains=query).filter(communication="In-Person").order_by('-created_at')
             context = {'onlinesearch': onlinesearch,
                        'inpersonsearch': inpersonsearch,
                       'searchbutton': searchbutton}
@@ -439,8 +439,8 @@ def searchforstartupsenv(request):
         query = request.GET.get('searchforstartups')
         searchbutton = request.GET.get('submit')
         if query is not None:
-            onlinesearch = Post.filter(organization="Start-Up").filter(interest='Environment').filter(description__icontains=query).filter(communication="Online").order_by('-created_at')
-            inpersonsearch = Post.filter(organization="Start-Up").filter(interest='Environment').filter(description__icontains=query).filter(communication="In-Person").order_by('-created_at')
+            onlinesearch = Post.objects.filter(organization="Start-Up").filter(interest='Environment').filter(description__icontains=query).filter(communication="Online").order_by('-created_at')
+            inpersonsearch = Post.objects.filter(organization="Start-Up").filter(interest='Environment').filter(description__icontains=query).filter(communication="In-Person").order_by('-created_at')
             context = {'onlinesearch': onlinesearch,
                        'inpersonsearch': inpersonsearch,
                         'searchbutton': searchbutton}
@@ -462,8 +462,8 @@ def searchforstartupsstem(request):
         query = request.GET.get('searchforstartups')
         searchbutton = request.GET.get('submit')
         if query is not None:
-            onlinesearch = Post.filter(organization="Start-Up").filter(interest='STEM').filter(description__icontains=query).filter(communication="Online").order_by('-created_at')
-            inpersonsearch = Post.filter(organization="Start-Up").filter(interest='STEM').filter(description__icontains=query).filter(communication="In-Person").order_by('-created_at')
+            onlinesearch = Post.objects.filter(organization="Start-Up").filter(interest='STEM').filter(description__icontains=query).filter(communication="Online").order_by('-created_at')
+            inpersonsearch = Post.objects.filter(organization="Start-Up").filter(interest='STEM').filter(description__icontains=query).filter(communication="In-Person").order_by('-created_at')
             context = {'onlinesearch': onlinesearch,
                        'inpersonsearch': inpersonsearch,
                       'searchbutton': searchbutton}
@@ -485,8 +485,8 @@ def searchforstartupsread(request):
         query = request.GET.get('searchforstartups')
         searchbutton = request.GET.get('submit')
         if query is not None:
-            onlinesearch = Post.filter(organization="Start-Up").filter(interest='Reading/Writing').filter(description__icontains=query).filter(communication="Online").order_by('-created_at')
-            inpersonsearch = Post.filter(organization="Start-Up").filter(interest='Reading/Writing').filter(description__icontains=query).filter(communication="In-Person").order_by('-created_at')
+            onlinesearch = Post.objects.filter(organization="Start-Up").filter(interest='Reading/Writing').filter(description__icontains=query).filter(communication="Online").order_by('-created_at')
+            inpersonsearch = Post.objects.filter(organization="Start-Up").filter(interest='Reading/Writing').filter(description__icontains=query).filter(communication="In-Person").order_by('-created_at')
             context = {'onlinesearch': onlinesearch,
                        'inpersonsearch': inpersonsearch,
                       'searchbutton': searchbutton}
@@ -508,8 +508,8 @@ def searchforstartupsart(request):
         query = request.GET.get('searchforstartups')
         searchbutton = request.GET.get('submit')
         if query is not None:
-            onlinesearch = Post.filter(organization="Start-Up").filter(interest='Music/Art').filter(description__icontains=query).filter(communication="Online").order_by('-created_at')
-            inpersonsearch = Post.filter(organization="Start-Up").filter(interest='Music/Art').filter(description__icontains=query).filter(communication="In-Person").order_by('-created_at')
+            onlinesearch = Post.objects.filter(organization="Start-Up").filter(interest='Music/Art').filter(description__icontains=query).filter(communication="Online").order_by('-created_at')
+            inpersonsearch = Post.objects.filter(organization="Start-Up").filter(interest='Music/Art').filter(description__icontains=query).filter(communication="In-Person").order_by('-created_at')
             context = {'onlinesearch': onlinesearch,
                        'inpersonsearch': inpersonsearch,
                         'searchbutton': searchbutton}
