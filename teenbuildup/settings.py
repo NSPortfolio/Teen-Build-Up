@@ -34,6 +34,8 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'app',
     'bootstrap4',
+    'django_extensions',
+    'sslserver',
 ]
 
 MIDDLEWARE = [
