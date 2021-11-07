@@ -531,25 +531,31 @@ def Popular(request):
     startstem = Post.objects.filter(organization="Start-Up").filter(interest='STEM').order_by('-saved').all()[:10]
     startread = Post.objects.filter(organization="Start-Up").filter(interest='Reading/Writing').order_by('-saved').all()[:10]
     startart = Post.objects.filter(organization="Start-Up").filter(interest='Music/Art').order_by('-saved').all()[:10]
+    startother = Post.objects.filter(organization="Start-Up").filter(interest='Other').order_by('-saved').all()[:10]
     clubenv = Post.objects.filter(organization="Club").filter(interest='Environment').order_by('-saved').all()[:10]
     clubstem = Post.objects.filter(organization="Club").filter(interest='STEM').order_by('-saved').all()[:10]
     clubread = Post.objects.filter(organization="Club").filter(interest='Reading/Writing').order_by('-saved').all()[:10]
     clubart = Post.objects.filter(organization="Club").filter(interest='Music/Art').order_by('-saved').all()[:10]
+    clubother = Post.objects.filter(organization="Club").filter(interest='Other').order_by('-saved').all()[:10]
     eventenv = Post.objects.filter(organization="Event").filter(interest='Environment').order_by('-saved').all()[:10]
     eventstem = Post.objects.filter(organization="Event").filter(interest='STEM').order_by('-saved').all()[:10]
     eventread = Post.objects.filter(organization="Event").filter(interest='Reading/Writing').order_by('-saved').all()[:10]
     eventart = Post.objects.filter(organization="Event").filter(interest='Music/Art').order_by('-saved').all()[:10]
+    eventother = Post.objects.filter(organization="Event").filter(interest='Other').order_by('-saved').all()[:10]
     return render(request, 'popular.html', {
         "startenv": startenv,
         "startstem": startstem,
         "startread": startread,
         "startart": startart,
+        "startother":startother,
         "clubenv": clubenv,
         "clubstem": clubstem,
         "clubread": clubread,
         "clubart": clubart,
+        "clubother":clubother,
         "eventenv": eventenv,
         "eventstem": eventstem,
         "eventread": eventread,
         "eventart": eventart,
+        "eventother":eventother,
     })
