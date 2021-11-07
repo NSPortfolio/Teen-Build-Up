@@ -8,6 +8,8 @@ SECURE_SSL_REDIRECT = True
 PREPEND_WWW = True
 BASE_URL = "https://www.teenbuildup.com"
 SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
+SESSION_COOKIE_SECURE = True
+CSRF_COOKIE_SECURE = True
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/3.1/howto/deployment/checklist/
