@@ -4,6 +4,10 @@ import os
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
+SECURE_SSL_REDIRECT = True
+PREPEND_WWW = True
+BASE_URL = "https://www.teenbuildup.com"
+SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/3.1/howto/deployment/checklist/
@@ -14,7 +18,7 @@ SECRET_KEY = '=_agbczi48eu6)1n@y=(pac6%d2wo(l^8tpo)mpp4j4%he5zl^'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
-ALLOWED_HOSTS = ['teenbuildup.com', 'ec2-3-225-112-0.compute-1.amazonaws.com', '3.225.112.0']
+ALLOWED_HOSTS = ['www.teenbuildup.com','teenbuildup.com', 'ec2-3-225-112-0.compute-1.amazonaws.com', '3.225.112.0']
 
 
 # Application definition
