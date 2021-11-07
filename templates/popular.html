@@ -92,6 +92,20 @@
               </li>
               {% endfor %}
             </ul>
+      </div></div></div></div>
+    <div class="row">
+    <div class="col-sm-6">
+      <div class="col-sm-6">
+      <div class="card bg-light mb-3" style="max-width: 35rem;">
+          <div class="card-header bg-transparent border-primary">Other Start-Ups</div>
+            <ul class="list-group">
+              {% for startother in startother %}
+              <li class="list-group-item d-flex justify-content-between align-items-center">
+                {{startother.name_of_organization}}
+                <span class="badge badge-primary badge-pill">Followers: {{startother.saved.count}} </span>
+              </li>
+              {% endfor %}
+            </ul>
       </div></div></div></div></center><br><br>
 
     <center>
@@ -149,6 +163,20 @@
               </li>
               {% endfor %}
             </ul>
+      </div></div></div></div>
+    <div class="row">
+    <div class="col-sm-6">
+      <div class="col-sm-6">
+      <div class="card bg-light mb-3" style="max-width: 35rem;">
+          <div class="card-header bg-transparent border-primary">Other Clubs</div>
+            <ul class="list-group">
+              {% for clubother in clubother %}
+              <li class="list-group-item d-flex justify-content-between align-items-center">
+                {{clubother.name_of_organization}}
+                <span class="badge badge-primary badge-pill">Followers: {{clubother.saved.count}} </span>
+              </li>
+              {% endfor %}
+            </ul>
       </div></div></div></div></center><br><br>
 
     <center>
@@ -203,6 +231,20 @@
               <li class="list-group-item d-flex justify-content-between align-items-center">
                 {{eventart.name_of_organization}}
                 <span class="badge badge-primary badge-pill">Followers: {{eventart.saved.count}} </span>
+              </li>
+              {% endfor %}
+            </ul>
+      </div></div></div></div>
+    <div class="row">
+    <div class="col-sm-6">
+      <div class="col-sm-6">
+      <div class="card bg-light mb-3" style="max-width: 35rem;">
+          <div class="card-header bg-transparent border-primary">Other Events</div>
+            <ul class="list-group">
+              {% for eventother in eventother %}
+              <li class="list-group-item d-flex justify-content-between align-items-center">
+                {{eventother.name_of_organization}}
+                <span class="badge badge-primary badge-pill">Followers: {{eventother.saved.count}} </span>
               </li>
               {% endfor %}
             </ul>
