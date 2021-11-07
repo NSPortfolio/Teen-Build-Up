@@ -66,26 +66,9 @@ WSGI_APPLICATION = 'teenbuildup.wsgi.application'
 
 DATABASES = {
     'default': {
-        'NAME': 'Usersdb',
-        'ENGINE': 'django.db.backends.mysql',
-        'USER': 'NS0886',
-        'HOST': 'NS0886.mysql.pythonanywhere-services.com',
-        'PASSWORD': 'root@be@root'
-    },
-    'post': {
-        'NAME': 'Postsdb',
-        'ENGINE': 'django.db.backends.mysql',
-        'USER': 'NS0886',
-        'HOST': 'NS0886.mysql.pythonanywhere-services.com',
-        'PASSWORD': 'root@be@root'
-    },
-    'area': {
-        'NAME': 'Areasdb',
-        'ENGINE': 'django.db.backends.mysql',
-        'USER': 'NS0886',
-        'HOST': 'NS0886.mysql.pythonanywhere-services.com',
-        'PASSWORD': 'root@be@root'
-    },
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': BASE_DIR / 'db.sqlite3',
+    }
 }
 
 # Password validation
