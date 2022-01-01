@@ -17,13 +17,15 @@ ALLOWED_HOSTS = ['www.teenbuildup.com','teenbuildup.com', 'ec2-35-175-143-212.co
 
 DEFAULT_AUTO_FIELD='django.db.models.AutoField'
 
-SECURE_CONTENT_TYPE_NOSNIFF = True
-SECURE_BROWSER_XSS_FILTER = True
-SESSION_COOKIE_SECURE = True
-CSRF_COOKIE_SECURE = True
-SECURE_SSL_REDIRECT = True
-SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
-CSRF_TRUSTED_ORIGINS = ['www.teenbuildup.com','teenbuildup.com', 'ec2-35-175-143-212.compute-1.amazonaws.com', '35.175.143.212']
+CORS_REPLACE_HTTPS_REFERER      = False
+HOST_SCHEME                     = "http://"
+SECURE_PROXY_SSL_HEADER         = None
+SECURE_SSL_REDIRECT             = False
+SESSION_COOKIE_SECURE           = False
+CSRF_COOKIE_SECURE              = False
+SECURE_HSTS_SECONDS             = None
+SECURE_HSTS_INCLUDE_SUBDOMAINS  = False
+SECURE_FRAME_DENY               = False
 
 # Application definition
 
