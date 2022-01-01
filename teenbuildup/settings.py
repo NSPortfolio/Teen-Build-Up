@@ -17,6 +17,8 @@ ALLOWED_HOSTS = ['www.teenbuildup.com','teenbuildup.com', 'ec2-35-175-143-212.co
 
 DEFAULT_AUTO_FIELD='django.db.models.AutoField'
 
+SECURE_SSL_REDIRECT = False
+
 # Application definition
 
 INSTALLED_APPS = [
