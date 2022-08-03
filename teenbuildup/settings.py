@@ -11,9 +11,9 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = '=_agbczi48eu6)1n@y=(pac6%d2wo(l^8tpo)mpp4j4%he5zl^'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
-ALLOWED_HOSTS = ['www.teenbuildup.com','teenbuildup.com', 'ec2-35-175-143-212.compute-1.amazonaws.com', '35.175.143.212']
+ALLOWED_HOSTS = ['www.teenbuildup.com','teenbuildup.com', '54.89.158.132']
 
 DEFAULT_AUTO_FIELD='django.db.models.AutoField'
 
@@ -81,6 +81,7 @@ DATABASES = {
         'ENGINE': 'django.db.backends.mysql',
         'USER': 'admin',
         'PASSWORD': 'unicorn1234'
+        '
     },
 }
 
