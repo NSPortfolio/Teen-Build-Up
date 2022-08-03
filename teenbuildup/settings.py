@@ -79,8 +79,8 @@ DATABASES = {
     'default': {
         'NAME': 'defaultdb',
         'ENGINE': 'django.db.backends.mysql',
-        'USER': 'root',
-        'PASSWORD': 'unicorn'
+        'USER': 'admin',
+        'PASSWORD': 'unicorn1234'
     },
 }
 
